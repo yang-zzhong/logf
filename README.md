@@ -37,6 +37,16 @@ logf.Println("you just set done your logf. so use it free")
 
 ```golang
 
+type Logf struct {
+	Path   string
+	Format string
+	Prefix string
+
+	m        sync.Mutex
+	ins      *log.Logger
+	filename string
+}
+
 func (logf *Logf) EnsurePathExist()
 
 func (logf *Logf) Ins() *log.Logger
